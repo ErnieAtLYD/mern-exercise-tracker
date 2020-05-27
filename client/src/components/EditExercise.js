@@ -18,16 +18,15 @@ const EditExercise = (props) => {
         setUsername(response.data.username);
         setDescription(response.data.description);
         setDuration(response.data.duration);
+      })
+      .catch((error) => {
+        console.log(error);
       });
 
     axios
       .get("http://localhost:5000/users/")
       .then((response) => {
         setUsers(response.data.map((user) => user.username));
-      })
-
-      .catch((error) => {
-        console.log(error);
       })
       .catch(function (error) {
         console.log(error);
